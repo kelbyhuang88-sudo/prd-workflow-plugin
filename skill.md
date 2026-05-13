@@ -23,6 +23,7 @@ allowed-tools:
 | `/prd-workflow quick` | 快速模式 | 紧急需求，跳过可选阶段 |
 | `/prd-workflow html` | 仅原型 | PRD已完成，绘制HTML原型 |
 | `/prd-workflow gantt` | 仅甘特图 | 开发评审后，生成甘特图 |
+| `/prd-workflow git-config` | Git配置 | 配置Git仓库访问令牌 |
 
 ### 参数处理
 
@@ -34,8 +35,9 @@ Skill接收参数后，按以下逻辑处理：
 | `quick` | 执行快速模式：阶段0→1→2→3→结束 |
 | `html` | 跳转到阶段4（HTML原型） |
 | `gantt` | 跳转到阶段5（甘特图） |
+| `git-config` | 执行Git配置流程 |
 
-**注意：** 子命令（quick、html、gantt）不会在命令搜索中显示，直接输入完整命令即可使用。
+**注意：** 子命令不会在命令搜索中显示，直接输入完整命令即可使用。
 
 ### 快速模式说明
 
@@ -108,6 +110,28 @@ Skill接收参数后，按以下逻辑处理：
 | "暂停" | 保存当前进度，提示下次继续方式 |
 | "继续" | 从上次暂停处继续 |
 
+### Git仓库访问
+
+**配置Git访问后可读取公司内部GitLab仓库：**
+
+| 功能 | 说明 |
+|------|------|
+| 读取前端组件对照文档 | 了解现有页面结构 |
+| 定位目标页面代码 | 精准生成增量原型 |
+| PRD差异检测 | 发现PRD与现有实现差异时自动提示 |
+
+**配置方式：**
+
+```
+/prd-workflow git-config
+```
+
+或首次运行时自动询问是否配置。
+
+**安全说明：**
+
+Git配置文件（含访问令牌）存放在本地memory目录，**不会同步到GitHub**。
+
 ## 前置检查
 
 ### 1. 初始化检测（首次运行）
@@ -168,6 +192,7 @@ Skill接收参数后，按以下逻辑处理：
 @$HOME/.claude/skills/prd-workflow/stages/03-prd.md
 @$HOME/.claude/skills/prd-workflow/stages/04-prototype.md
 @$HOME/.claude/skills/prd-workflow/stages/05-gantt.md
+@$HOME/.claude/skills/prd-workflow/stages/06-git-config.md
 
 ## 输出规范
 
