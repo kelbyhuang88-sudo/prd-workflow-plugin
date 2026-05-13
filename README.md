@@ -68,10 +68,6 @@ flowchart TD
 └── （完整版本）产品需求文档
 ```
 
-## 详细使用说明
-
-请参阅 [使用手册.md](使用手册.md)
-
 ## 作者
 
 - GitHub: [@kelbyWong](https://github.com/kelbyWong)
