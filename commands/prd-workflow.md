@@ -21,9 +21,19 @@ allowed-tools:
 |------|------|------|
 | `/prd-workflow` | 完整流程 | 阶段0→1→2→3→4→5 |
 | `/prd-workflow quick` | 快速模式 | 紧急需求，跳过可选阶段 |
+| `/prd-workflow validate` | 需求核验 | 仅检测澄清文档质量，不进入核心点分析 |
 | `/prd-workflow html` | 仅原型 | PRD已完成，绘制HTML原型 |
 | `/prd-workflow gantt` | 仅甘特图 | 开发评审后，生成甘特图 |
 | `/prd-workflow git-config` | Git配置 | 配置Git仓库访问令牌 |
+
+### 对话方式触发
+
+| 对话输入 | 对应命令 |
+|----------|----------|
+| "需求核验" | `/prd-workflow validate` |
+| "生成HTML原型" / "绘制原型" | `/prd-workflow html` |
+| "生成甘特图" | `/prd-workflow gantt` |
+| "配置Git访问" | `/prd-workflow git-config` |
 
 ### 参数处理
 
@@ -33,11 +43,12 @@ Skill接收参数后，按以下逻辑处理：
 |------|----------|
 | 无参数（空） | 执行完整流程：阶段0→1→2→3→4→5 |
 | `quick` | 执行快速模式：阶段0→1→2→3→结束 |
+| `validate` | 执行需求核验：仅检测文档质量 |
 | `html` | 跳转到阶段4（HTML原型） |
 | `gantt` | 跳转到阶段5（甘特图） |
 | `git-config` | 执行Git配置流程 |
 
-**注意：** 子命令不会在命令搜索中显示，直接输入完整命令即可使用。
+**注意：** 子命令不会在命令搜索中显示，直接输入完整命令或对话方式即可使用。
 
 ### 快速模式说明
 
@@ -132,6 +143,28 @@ Skill接收参数后，按以下逻辑处理：
 
 Git配置文件（含访问令牌）存放在本地memory目录，**不会同步到GitHub**。
 
+### 需求核验功能
+
+**检测需求澄清文档质量，提前发现问题：**
+
+| 检测维度 | 说明 |
+|----------|------|
+| 信息完整性 | 业务背景、用户角色、业务场景 |
+| 逻辑一致性 | 描述是否矛盾或有冲突 |
+| 边界模糊 | "类似"、"大概"等模糊表述 |
+| 场景缺失 | 异常场景、边界情况 |
+| 技术遗漏 | 接口依赖、数据来源 |
+
+**调用方式：**
+
+```
+/prd-workflow validate
+```
+
+或对话输入："需求核验"
+
+**作用：** 在核心点分析前发现问题，避免因文档简陋导致后续PRD质量下降。
+
 ## 前置检查
 
 ### 1. 初始化检测（首次运行）
@@ -188,6 +221,7 @@ Git配置文件（含访问令牌）存放在本地memory目录，**不会同步
 
 @$HOME/.claude/skills/prd-workflow/stages/00-init.md
 @$HOME/.claude/skills/prd-workflow/stages/01-clarify.md
+@$HOME/.claude/skills/prd-workflow/stages/01-validate.md
 @$HOME/.claude/skills/prd-workflow/stages/02-core.md
 @$HOME/.claude/skills/prd-workflow/stages/03-prd.md
 @$HOME/.claude/skills/prd-workflow/stages/04-prototype.md
