@@ -5,6 +5,10 @@ description: "PRD工作流记忆索引"
 
 # PRD工作流记忆索引
 
+## 核心灵魂
+
+- [AI灵魂](soul.md) — 角色定位、工作原则、PRD标准
+
 ## 用户信息
 
 - [用户身份](user_profile.md) — 产品经理角色

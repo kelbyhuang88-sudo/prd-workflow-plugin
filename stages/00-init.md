@@ -42,11 +42,13 @@ mkdir -p ~/.claude/projects/prd-workflow/memory/
 | 模板文件 | 目标文件 |
 |----------|----------|
 | MEMORY.md | MEMORY.md |
+| soul.md | soul.md |
 | prd_config.md | prd_config.md |
 | template_paths.md | template_paths.md |
 | user_profile.md | user_profile.md |
 | project_contacts.md | project_contacts.md |
 | feedback_history.md | feedback_history.md |
+| git_config.md | git_config.md |
 
 使用Bash工具复制：
 
