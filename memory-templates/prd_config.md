@@ -26,8 +26,24 @@ type: project
 | 项目集 | 系统 |
 |--------|------|
 | tms | ETMS、GPS、RMS、PRS |
-| erpp | lsp、EAS、crm、OA |
-| wms | wms、wcs、qps |
+| erpp | LSP、EAS、CRM、OA |
+| wms | YHWMS、SWMS、WMS、WCS、QPS |
+
+## 知识库路径
+
+**根目录：** `{文档仓库根目录}/project/`
+
+| 文档类型 | 相对路径 |
+|----------|----------|
+| 项目集概述 | `project/{项目集}/overview.md` |
+| 子系统详情 | `project/{项目集}/{系统}/{系统}.md` |
+
+**示例：**
+- ERPP-LSP系统文档：`project/erpp/LSP/LSP.md`
+- TMS-ETMS系统文档：`project/tms/ETMS/ETMS.md`
+- WMS系统文档：`project/wms/WMS/WMS.md`
+
+---
 
 ## 需求类型
 
